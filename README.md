@@ -9,21 +9,11 @@ As large-scale studies with hundreds to thousands of systems are not easy to per
 # Steps to Use FlippyRAM
 ## 1. Download the ISO Image
 - The FlippyRAM project provides an ISO image, HammerISO, for automated Rowhammer testing.
-- Download the latest version of the ISO from flippyr.am.
+- Download the latest version of the ISO from [flippyr.am](https://flippyr.am).
 
 HammerISO is an ISO image that can be used for automated Rowhammer testing of
 different systems. In the end of the experiment, a brief overview of the number
 of bit flips found by different tools is shown.
-
-In addition to the live system, the ISO image contains a second partition that
-is automatically resized to the maximum size at the first boot of the image.
-Following boots will not resize the partition. The logs written by the different
-tools are compressed and stored in that partition so they can be analyzed
-afterwards.
-
-Additionally, the test setup asks the user to upload the results to a server.
-It basically takes the compressed results and use `curl` to upload them to the
-server currently running at [flippyr.am](https://flippyr.am).
 
 ## 2. Build the ISO Image (Optional)
 If you'd like to build the ISO image yourself:
@@ -72,7 +62,8 @@ The parameter `<path/to/ISO/image.iso>` specifies the path to the ISO image.
 - The ISO will automatically perform Rowhammer tests and display an overview of the results, including the number of bit flips detected.
 
 ## 5. The Results
-- Logs/Results are saved on a separate partition of the USB drive where you can easily access anytime.
+- Logs/Results are saved and compressed in a ZIP file on a separate partition of the USB drive where you can easily access anytime.
+- Multiple tests/boots will NOT erase previous results.
 
 ## 6. Upload Results (Optional)
 - After completing the tests, the setup will prompt you to upload the results to our server (Optional).
