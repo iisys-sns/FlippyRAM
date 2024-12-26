@@ -2,7 +2,8 @@
 We developed a new framework to check if your system is vulnerable to Rowhammer, incorporating the state-of-the-art Rowhammer techniques and tools. Thus, we invite everyone to participate in this unique opportunity to join forces and close this research gap together. 
 We address the following questions: 
 - What is the real-world prevalence of the Rowhammer effect? 
-- How many systems, in their current configurations, are vulnerable to Rowhammer? 
+- How many systems, in their current configurations, are vulnerable to Rowhammer?
+
 As large-scale studies with hundreds to thousands of systems are not easy to perform, such a study has not yet been performed.
 
 # Steps to Use FlippyRAM
