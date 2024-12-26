@@ -15,7 +15,7 @@ HammerISO is an ISO image that can be used for automated Rowhammer testing of
 different systems. In the end of the experiment, a brief overview of the number
 of bit flips found by different tools is shown.
 
-## 2. Build the ISO Image (Optional)
+### Alternative: Build the ISO Image (Optional)
 If you'd like to build the ISO image yourself:
 - Ensure you are running **ArchLinux**.
 - Clone the repository:
