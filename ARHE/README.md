@@ -1,0 +1,12 @@
+# ARHE Dependencies
+- python
+- python-numpy
+- cmake
+- dialog
+- i2c-tools
+- dmidecode
+- make
+- gcc
+- zip
+- gdb
+- qrencode

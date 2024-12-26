@@ -1,0 +1,98 @@
+                            
+************   [SCROLL \Z1DOWN/UP\Zn with arrow keys \Z1↑ ↓\Zn]  ************
+
+
+We are committed to protecting your personal data and ensuring that your privacy is respected. This Privacy Policy explains how we collect, use, and protect the data you provide as part of your participation in our study or interaction with our system. Our practices comply with the General Data Protection Regulation (GDPR) and other applicable data protection laws.
+
+\Z3-------------------------------------------------------------\Zn
+
+1. Data We Collect
+
+We collect the following types of data:
+
+1. Personal Data: Information you provide, such as your consent status and participation preferences.
+
+2. Technical Data: Device information, including system configurations and experiment-related outputs.
+
+3. Usage Data: Anonymous metrics related to your interaction with the system.
+
+All data collected are strictly necessary for the purposes outlined in this policy.
+
+\Z3-------------------------------------------------------------\Zn
+
+2. Purpose of Data Collection
+
+We collect and process your data for the following purposes:
+
+1. To Conduct the Study: Enable participation and collect results for research purposes.
+
+2. To Improve Security: Analyze data to identify vulnerabilities and improve systems.
+
+3. To Fulfill Legal Obligations: Comply with legal and regulatory requirements.
+
+4. To Enhance User Experience: Monitor and improve the quality and usability of our system.
+
+\Z3-------------------------------------------------------------\Zn
+
+3. Data Protection
+
+We implement robust measures to protect your data:
+
+1. Data is securely stored using encryption and access controls.
+
+2. Only authorized personnel can access your data.
+
+3. Data is pseudonymized or anonymized whenever possible to protect your identity.
+
+We do not sell, rent, or share your data with third parties for marketing purposes.
+
+\Z3-------------------------------------------------------------\Zn
+
+4. Data Retention
+
+Your data will be retained only for as long as necessary to fulfill the purposes outlined above or as required by law. After this period, data will be securely deleted or anonymized.
+
+5. Your Rights
+
+Under GDPR, you have the following rights:
+
+- Access: Request access to your personal data.
+
+- Rectification: Correct inaccurate or incomplete data.
+
+- Erasure: Request deletion of your data (right to be forgotten).
+
+- Restriction: Request to limit how your data is processed.
+
+- Data Portability: Receive your data in a structured, commonly used format.
+
+- Objection: Object to data processing based on legitimate interests.
+
+To exercise your rights, contact us at flippy.ram@hof-university.de.
+
+\Z3-------------------------------------------------------------\Zn
+
+6. Data Sharing
+
+We may share data with trusted third-party processors only when necessary and under strict confidentiality agreements. These processors comply with GDPR and other relevant data protection regulations.
+
+\Z3-------------------------------------------------------------\Zn
+
+7. International Data Transfers
+
+If data is transferred outside the European Economic Area (EEA), we ensure that adequate safeguards, such as Standard Contractual Clauses, are in place.
+
+\Z3-------------------------------------------------------------\Zn
+
+8. Contact Us
+
+If you have questions or concerns about this Privacy Policy or how your data is handled, you may contact us at:
+
+- Email: flippy.ram@hof-university.de
+- Address: Alfons-Goppel-Platz 1, 95028 Hof (Institut für Informationssysteme der Hochschule Hof (iisys))
+
+\Z3-------------------------------------------------------------\Zn
+
+By participating in our study or using our system, you agree to this Privacy Policy.
+
+If you do not agree, you may decline participation at any time without penalty.
