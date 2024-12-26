@@ -33,7 +33,7 @@ The resulting file, `hammeriso.iso`, will be available in the project directory.
 Note: Since the ISO building process is based on **ArchISO**, this requires
 **ArchLinux** in order to build the ISO image.
 
-## 3. Flash the ISO Image
+## 2. Flash the ISO Image
 - Connect the USB drive(s) to your system.
 - Flash the ISO image to all drives of a specific size using the command:
 ```bash
@@ -57,15 +57,15 @@ size connected to the system.
 
 The parameter `<path/to/ISO/image.iso>` specifies the path to the ISO image.
 
-## 4. Run the Tests
+## 3. Run the Tests
 - Boot your target system using the USB drive with the flashed HammerISO.
 - The ISO will automatically perform Rowhammer tests and display an overview of the results, including the number of bit flips detected.
 
-## 5. The Results
+## 4. The Results
 - Logs/Results are saved and compressed in a ZIP file on a separate partition of the USB drive where you can easily access anytime.
 - Multiple tests/boots will NOT erase previous results.
 
-## 6. Upload Results (Optional)
+## 5. Upload Results (Optional)
 - After completing the tests, the setup will prompt you to upload the results to our server (Optional).
 - Uploading helps contribute to the large-scale study at [flippyr.am](https://flippyr.am).
 
