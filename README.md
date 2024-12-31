@@ -63,15 +63,21 @@ size connected to the system.
 
 The parameter `<path/to/ISO/image.iso>` specifies the path to the ISO image.
 
-## 3. Run the Experiment
+## 3. Turn Off Secure Boot
+- Restart your computer and access the `BIOS/UEFI` settings. This is usually done by pressing a specific key during boot, such as `F2`, `F10`, `F12`, or `Del`
+- Navigate to the Secure Boot settings. Look for options like "Boot" or "Security" in the BIOS/UEFI menu. The location of Secure Boot settings varies depending on the system manufacturer.
+- Disable Secure Boot. Find the `Secure Boot` option and set it to `Disabled`. Some systems may require you to set an `Administrator Password` in the `BIOS/UEFI` before you can change this setting.
+- Save changes and exit.
+
+## 4. Run the Experiment
 - Boot your target system using the USB drive with the flashed HammerISO.
 - The ISO will automatically performs Rowhammer experiment and displays an overview of the results, including the number of bit flips detected.
 
-## 4. The Results
+## 5. The Results
 - Logs/Results are stored and compressed in a ZIP file on a separate partition of the USB drive where you can easily access anytime.
 - Multiple tests/boots will NOT erase previous results.
 
-## 5. Upload Results (Optional)
+## 6. Upload Results (Optional)
 - After completing the experiment, the setup will prompt you to upload the results to our server (Optional).
 - Uploading helps contribute to the large-scale study at [flippyr.am](https://flippyr.am).
 
