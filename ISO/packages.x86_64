@@ -131,3 +131,5 @@ git
 dialog
 qrencode
 upower
+python-pillow
+python-qrcode

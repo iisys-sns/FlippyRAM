@@ -72,7 +72,7 @@ echo "url: $url" >> "$log_file"
 
 if [ "$isFlag" = "true" ];then
     echo -e "\n"
-    qrencode -t ANSI256 -s 1 "$url"
+    python3 "$root_path/components/utils/generateQR.py" -u "https://$url"
     echo -e "\nYou can now view your results. Scan the QR Code or Enter through this link: $url\n"
     bash "$root_path/components/cleanup.sh"
 fi

@@ -107,6 +107,12 @@ while [ "$runtime" -gt 60 ]; do
 			killall -9 "rowhammer_test" > /dev/null 2>&1
 		fi
 
+		# In case of any problems with I/O
+		if [ ! -f "$runOutputFile" ]; then
+			killall -9 "rowhammer_test" > /dev/null 2>&1
+			exit 1
+		fi
+
 		# Verify that the file size is not exceeded, kill the process if it is and fail the experiment
 		fileSize="$(stat "$runOutputFile"  | grep "Size" | cut -d ":" -f 2 | sed 's/^ *\([0-9]\+\) \+.*$/\1/g')"
 		if [ "$fileSize" -ge "$FILE_SIZE_LIMIT" ]; then

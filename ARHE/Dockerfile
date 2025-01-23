@@ -3,7 +3,7 @@ FROM docker.io/library/debian:bullseye-slim
 
 RUN apt-get update \
  && </dev/null DEBIAN_FRONTEND=noninteractive \
-    apt-get --yes install --no-install-recommends git cmake build-essential psmisc libc6-dev cron dmidecode bc python3 python3-numpy i2c-tools kmod dialog inetutils-ping locales locales-all zip curl network-manager dbus upower openssl ca-certificates qrencode \
+    apt-get --yes install --no-install-recommends git cmake build-essential psmisc libc6-dev cron dmidecode bc python3 python3-numpy i2c-tools kmod dialog inetutils-ping locales locales-all zip curl network-manager dbus upower openssl ca-certificates qrencode python3-pillow python3-qrcode \
  && apt-get clean \
  && rm -rf /var/lib/apt/lists/*
 

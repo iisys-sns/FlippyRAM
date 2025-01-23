@@ -16,6 +16,14 @@ skipped_tools_log_path="$root_path/data/logs/skipped_tools.log"
 
 tput civis
 
+unmountPartition() {
+    clear
+    echo "Unmounting Partition & Synchronizing ..."
+	sync
+    umount /arhe
+    echo -e "${GREEN_TXT}Partition is unmounted and Synchronizing is done!${COLOR_RESET}"
+}
+
 handleDialog() {
 	local rc=5
 	while [ "$rc" -eq 5 ]; do
@@ -80,7 +88,7 @@ timer() {
 }
 
 uploader_box(){
-    handleDialog '--colors --title "Upload The Results $(bash components/utils/getBatteryState.sh)" --no-shadow --yes-label "Yes" --no-label "No" --yesno "\n      \ZbAre you willing to upload the results now?\Zn\n\nIf yes, your connection will be checked and if not connected, you will be able to connect through our interface" 12 60'
+    handleDialog '--colors --title "Upload The Results $(bash components/utils/getBatteryState.sh)" --no-shadow --yes-label "Yes" --no-label "No" --yesno "\n      \ZbAre you willing to upload the results now?\Zn\n\nIf yes, your internet connection will be checked and if not connected, you will be able to connect through our interface" 12 60'
 		rc=$(cat $root_path/data/tmp/dialog_state.tmp)
     if [ $rc -ne 0 ]; then
         echo "user has DECLINED to upload the results" >> "$root_path/data/user_will.txt"
@@ -173,10 +181,11 @@ uploader_progress_box(){
         clear
         tput cnorm
         echo -e "\n"
-        qrencode -t ANSI256 -s 1 "$url"
+        python3 "$root_path/components/utils/generateQR.py" -u "https://$url"
         echo -e "\nYou can now view your token. Scan the QR Code or Enter through this link: $url\n"
         echo -e "\nPress any key to close and continue ...\n"
         read -n 1 -s
+        tput reset
         tput civis
         menu_box_secondary
     elif [[ "$didResponseSucceed" == "false" ]];then
@@ -206,7 +215,7 @@ menu_box_primary(){
         fi
 
         handleDialog '--no-shadow --colors --nocancel --title "'"$ARHE_VERSION"' $(bash components/utils/getBatteryState.sh)" --menu "\n            Connection Status: \Zb'"$color$connection_status"'\Zn" 15 60 5 \
-        1 "Check Network Connection" \
+        1 "Check Internet Connection" \
         2 "Upload The Results '"($uploadButtonStatus)"'" \
         3 "Network Manager" \
         4 "Open Terminal" \
@@ -217,7 +226,7 @@ menu_box_primary(){
         case $menu_choice in
             1)
                 # If the user clicks, network connection status is updated
-                handleDialog '--no-shadow --infobox "Checking Network Connection ..." 6 40'
+                handleDialog '--no-shadow --infobox "Checking Internet Connection ..." 6 40'
                 sleep 1
                 ;;
             2)
@@ -285,8 +294,12 @@ menu_box_secondary(){
                 if [ -f "/.dockerenv" ];then
                     tput cnorm
                     clear
+                    echo "Synchronizing ..."
+                    sync
+                    echo -e "${GREEN_TXT}Synchronizing is done!${COLOR_RESET}"
                     exit 0
                 fi
+                unmountPartition
                 reboot -f &
                 sleep 5
                 if ps -p $! > /dev/null; then
@@ -300,6 +313,9 @@ menu_box_secondary(){
                 bash "$root_path/components/cleanup.sh"
                 tput cnorm
                 clear
+                echo "Synchronizing ..."
+                sync
+                echo -e "${GREEN_TXT}Synchronizing is done!${COLOR_RESET}"
                 exit 0
                 ;;
         esac
@@ -317,8 +333,12 @@ user_agreements_box() {
         if [ -f "/.dockerenv" ];then
             tput cnorm
             clear
+            echo "Synchronizing ..."
+            sync
+            echo -e "${GREEN_TXT}Synchronizing is done!${COLOR_RESET}"
             exit 0
         fi
+        unmountPartition
         reboot -f &
         sleep 5
         if ps -p $! > /dev/null; then
@@ -340,8 +360,12 @@ user_agreements_box() {
         if [ -f "/.dockerenv" ];then
             tput cnorm
             clear
+            echo "Synchronizing ..."
+            sync
+            echo -e "${GREEN_TXT}Synchronizing is done!${COLOR_RESET}"
             exit 0
         fi
+        unmountPartition
         reboot -f &
         sleep 5
         if ps -p $! > /dev/null; then
@@ -520,7 +544,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "Blacksmith" | grep "failed")" != "" ]; then
         blacksmithBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/totalBlacksmithBitFlips.tmp" ]; then
-        blacksmithBitFlips=$(cat "$root_path/data/tmp/totalBlacksmithBitFlips.tmp")
+        blacksmithBitFlips="$(cat "$root_path/data/bit-flip-reports-blacksmith.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     trrespassBitFlips="(Failed)"
@@ -529,7 +553,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "TRRespass" | grep "failed")" != "" ]; then
         trrespassBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/hammersuiteBitFlipsNum.tmp" ]; then
-        trrespassBitFlips=$(cat "$root_path/data/tmp/hammersuiteBitFlipsNum.tmp")
+        trrespassBitFlips="$(cat "$root_path/data/bit-flip-reports-trrespass.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     flipfloydBitFlips="(Failed)"
@@ -538,7 +562,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "FlipFloyd" | grep "failed")" != "" ]; then
         flipfloydBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/flipfloydBitFlipsNum.tmp" ]; then
-        flipfloydBitFlips=$(cat "$root_path/data/tmp/flipfloydBitFlipsNum.tmp")
+        flipfloydBitFlips="$(cat "$root_path/data/bit-flip-reports-flipfloyd.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     rowpressBitFlips="(Failed)"
@@ -547,7 +571,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "RowPress" | grep "failed")" != "" ]; then
         rowpressBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/rowpressBitFlipsNum.tmp" ]; then
-        rowpressBitFlips=$(cat "$root_path/data/tmp/rowpressBitFlipsNum.tmp")
+        rowpressBitFlips="$(cat "$root_path/data/bit-flip-reports-rowpress.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     rowhammerjsBitFlips="(Failed)"
@@ -556,7 +580,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "RowhammerJs" | grep "failed")" != "" ]; then
         rowhammerjsBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/rowhammerjsBitFlipsNum.tmp" ]; then
-        rowhammerjsBitFlips=$(cat "$root_path/data/tmp/rowhammerjsBitFlipsNum.tmp")
+        rowhammerjsBitFlips="$(cat "$root_path/data/bit-flip-reports-rowhammerjs.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     rowhammertestBitFlips="(Failed)"
@@ -565,7 +589,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "Rowhammer_test" | grep "failed")" != "" ]; then
         rowhammertestBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/rowhammertestBitFlipsNum.tmp" ]; then
-        rowhammertestBitFlips=$(cat "$root_path/data/tmp/rowhammertestBitFlipsNum.tmp")
+        rowhammertestBitFlips="$(cat "$root_path/data/bit-flip-reports-rowhammertest.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     hammertoolBitFlips="(Failed)"
@@ -574,7 +598,7 @@ progress_box() {
     elif [ "$(cat "$skipped_tools_log_path" | grep "HammerTool" | grep "failed")" != "" ]; then
         hammertoolBitFlips="(Failed)"
     elif [ -f "$root_path/data/tmp/hammertoolBitFlipsNum.tmp" ]; then
-        hammertoolBitFlips=$(cat "$root_path/data/tmp/hammertoolBitFlipsNum.tmp")
+        hammertoolBitFlips="$(cat "$root_path/data/bit-flip-reports-hammertool.txt" | grep "Total Bit Flips" | cut -d ":" -f 2 | cut -d " " -f 2)"
     fi
 
     handleDialog '--no-shadow --colors --ok-label " Continue " \

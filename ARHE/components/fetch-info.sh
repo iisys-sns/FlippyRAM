@@ -186,4 +186,8 @@ fi
 echo -e "${BLUE_BG} Fetch ${COLOR_RESET} Number of channels Detected - ${GREEN_TXT}SUCCESS${COLOR_RESET}"
 # ------------------------------------- Channel Detection End -------------------------------------
 
+# Script Version
+echo "${ARHE_VERSION}" > "$root_path/data/VERSION.txt"
+# Script Version End
+
 echo "100%" > "$progress"

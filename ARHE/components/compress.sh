@@ -15,6 +15,6 @@ echo "$fileName" > "$fileNamePath"
 
 cd "$root_path"
 echo -e "${BLUE_BG} Compressor ${COLOR_RESET} Compressing the results ..."
-zip -r "$fileName" data -x "data/tmp/*" "*.zip" > "$log_file" 2>&1
+zip -r "$fileName" data -x "data/tmp/*" "$root_path/tokens.txt" "*.zip" > "$log_file" 2>&1
 echo -e "${BLUE_BG} Compressor ${COLOR_RESET} Compressing is done!"
 echo "100" > "$compressProgress"
