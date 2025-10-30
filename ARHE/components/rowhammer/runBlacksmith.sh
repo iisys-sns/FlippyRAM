@@ -201,7 +201,6 @@ do
             while IFS= read -r line
             do
                 echo $(date +%s) > "$layer0_sTimePath"
-                echo "$line"
                 echo "$line" >> "$stdoutFinalPath"
                 if [[ "$line" == *"Bit Flip Found!"* ]];then
                     echo "Bit Flip Found | $(date +%Y-%m-%d_%H-%M-%S)" >> "$bitFlipReport"
