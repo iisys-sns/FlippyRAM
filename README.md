@@ -136,7 +136,7 @@ To cite the FlippyRAM **software**, please use the following BibTeX entry:
 @misc{Heckel2026FlippyRAMSoftware,
   title  = {{FlippyRAM: A Large-Scale Study of Rowhammer Prevalence}},
   author = {Heckel, Martin and Sayadi, Nima and Juffinger, Jonas and Fiedler, Carina and Gruss, Daniel and Adamsky, Florian},
-	date   = {2026},
-	url    = {https://github.com/iisys-sns/FlippyRAM}
+  date   = {2026},
+  url    = {https://github.com/iisys-sns/FlippyRAM}
 }
 ```
