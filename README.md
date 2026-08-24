@@ -6,6 +6,8 @@ We address the following questions:
 
 As large-scale studies with hundreds to thousands of systems are not easy to perform, such a study has not yet been performed.
 
+The source code of the server we used to collect the data is in the GitHub Repository ([FlippyRAM-Server](https://github.com/iisys-sns/FlippyRAM-Server)).
+
 # How to Run FlippyRAM
 There are two easy ways to run the tool:
 
@@ -114,3 +116,27 @@ Review our privacy policy here: [Privacy Statement](https://flippyr.am/privacy.h
 
 ## Developer Documentation
 If you’re a developer or researcher interested in contributing to FlippyRAM, refer to the [Developer Documentation](./dev-doc.md) for implementation details.
+
+## Citing our Work
+
+To cite the FlippyRAM **paper**, please use the following BibTeX entry:
+
+```
+@inproceedings{Heckel2026FlippyRAM,
+  title     = {{FlippyRAM: A Large-Scale Study of Rowhammer Prevalence}},
+  author    = {Heckel, Martin and Sayadi, Nima and Juffinger, Jonas and Fiedler, Carina and Gruss, Daniel and Adamsky, Florian},
+  booktitle = {NDSS},
+  date      = {2026},
+}
+```
+
+To cite the FlippyRAM **software**, please use the following BibTeX entry:
+
+```
+@misc{Heckel2026FlippyRAMSoftware,
+  title  = {{FlippyRAM: A Large-Scale Study of Rowhammer Prevalence}},
+  author = {Heckel, Martin and Sayadi, Nima and Juffinger, Jonas and Fiedler, Carina and Gruss, Daniel and Adamsky, Florian},
+	date   = {2026},
+	url    = {https://github.com/iisys-sns/FlippyRAM}
+}
+```
